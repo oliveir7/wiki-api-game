@@ -11,7 +11,8 @@
 angular
   .module('urbnApp', [
     'ngResource',
-    'ngRoute'
+    'ngRoute',
+    'ui.bootstrap'
   ])
   .config(function ($routeProvider, $locationProvider) {
     $locationProvider.hashPrefix(''); // https://stackoverflow.com/questions/41211875/angularjs-1-6-0-latest-now-routes-not-working
@@ -25,6 +26,11 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
+      })
+      .when('/kuler', {
+        templateUrl: 'views/kuler.html',
+        controller: 'KulerCtrl',
+        controllerAs: 'kuler'
       })
       .otherwise({
         redirectTo: '/'
