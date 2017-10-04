@@ -7,7 +7,7 @@
  * # MainCtrl
  * Controller of the urbnApp
  */
-angular.module('urbnApp').controller('WikiGameCtrl', function ($scope, WikiRandomCached, WikiRandom, $window) {
+angular.module('urbnApp').controller('WikiGameCtrl', function ($scope, WikiRandomCached, WikiRandom, $window, WikiPage, $compile) {
 
     /**
      * The wikipedia adventure game.
@@ -48,7 +48,16 @@ angular.module('urbnApp').controller('WikiGameCtrl', function ($scope, WikiRando
         }, function (error) {
             $scope.currentPage = error;
         });
-        
     };
+    
+    $scope.getPage = function (titleParm) {
+        WikiPage.get({
+            title: titleParm
+        }).$promise.then(function (response) {
+            $scope.targetPage = response.html;
+        }, function (response) {
+            // $scope.targetPage = $sce.trustAsHtml(response);
+        });
+    }
 
 });

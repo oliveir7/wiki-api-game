@@ -13,7 +13,9 @@ angular
     'ngResource',
     'ngRoute',
     'ui.bootstrap',
-    'urbnApp.services'
+    'urbnApp.services',
+    'urbnApp.directives',
+    'ngSanitize'
   ])
   .config(function ($routeProvider, $locationProvider) {
     $locationProvider.hashPrefix(''); // https://stackoverflow.com/questions/41211875/angularjs-1-6-0-latest-now-routes-not-working

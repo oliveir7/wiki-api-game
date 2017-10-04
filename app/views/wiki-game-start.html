@@ -2,6 +2,13 @@
 <!--    design a directive that can push "nodes" that will count the users progress -->
     <p class="h2">Get to this target page: </p>
     <pre>{{ target | json }}</pre>
+    <button class='btn btn-primary' ng-click='getPage(target.title)'>Load Target Page</button>
+    
+    <p class="h2">Compiled: </p>
+    <dynamic-element message='targetPage'></dynamic-element>
+    
+    <p class="h2">Not compiled: </p>
+    <div ng-bind-html='targetPage'></div>
     
     <br>
     <button class='btn btn-primary' ng-click='getRandomPage()'>Random Page</button>
