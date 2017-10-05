@@ -29,7 +29,8 @@ angular
       })
       .when('/start', {
         templateUrl: 'views/wiki-game-start.html',
-        controller: 'WikiGameCtrl'
+        controller: 'WikiGameCtrl',
+        reloadOnSearch: false // do not leave page when a query parameter is added
       })
       .otherwise({
         redirectTo: '/'

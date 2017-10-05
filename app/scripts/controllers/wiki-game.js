@@ -51,10 +51,12 @@ angular.module('urbnApp').controller('WikiGameCtrl', function ($scope, WikiRando
     };
     
     $scope.getPage = function (titleParm) {
+        $scope.article = {};
+        $scope.article.title = titleParm;
         WikiPage.get({
             title: titleParm
         }).$promise.then(function (response) {
-            $scope.targetPage = response.html;
+            $scope.article.html = response.html;
         }, function (response) {
             // $scope.targetPage = $sce.trustAsHtml(response);
         });

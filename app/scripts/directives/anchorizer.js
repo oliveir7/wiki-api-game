@@ -1,4 +1,4 @@
-angular.module('urbnApp').directive('a', function () {
+angular.module('urbnApp').directive('a', function ($location) {
     /**
      * Whenever an anchor is clicked, we need to hijack it.
      */
@@ -9,8 +9,10 @@ angular.module('urbnApp').directive('a', function () {
             if (attrs.rel === 'mw:WikiLink') {
                 elem.addClass('WikiLink');
                 elem.on('click', function (e) {
-                    console.log('We should be going here now: ' + attrs.href);
-                    e.preventDefault(); // do not load the page
+                    e.preventDefault(); // do not load the url
+                    var title = attrs.href.replace(/(\.\/)/g, ''); // delete './' from url, just need the title
+                    $location.search('title', title); // add query parameter for our app
+                    scope.$apply(); // $apply() is used to execute an expression in angular from outside of the angular framework 
                 });
             } else {
                 if (attrs.href === '#/' || attrs.href === '#/start' || attrs.ngHref === '#/' || attrs.ngHref === '#/start') {

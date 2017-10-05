@@ -4,9 +4,10 @@
     <pre>{{ target | json }}</pre>
     <button class='btn btn-primary' ng-click='getPage(target.title)'>Load Target Page</button>
     
-    <div dynamic-html='targetPage'></div>
+    <p class="h2"> {{ article.title}} </p>
+    <div dynamic-html='article.html'></div>
     
     <button class='btn btn-primary' ng-click='getRandomPage()'>Random Page</button>
     <pre>{{ currentPage | json }}</pre>
-    
+
 </div>
