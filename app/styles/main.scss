@@ -26,6 +26,28 @@ a.WikiLink:hover {
     border-top: 1px solid #ff0000;
 }
 
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: unset !important;
+    }
+}
+
+.tab .uib-tab .nav-item :hover {
+    cursor: pointer;
+}
+
+.sidebar {
+    position: fixed;
+}
+
+.article-title {
+    background-color: #efefef
+}
+
+.fixed-font {
+    font-size: 12px;
+}
+
 body {
   padding: 0;
 }

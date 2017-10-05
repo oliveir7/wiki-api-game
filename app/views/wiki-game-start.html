@@ -1,14 +1,38 @@
 <div>
-<!--    design a directive that can push "nodes" that will count the users progress -->
-    <p class="h2">Get to this target page: </p>
-    <pre>{{ target | json }}</pre>
-    <button class='btn btn-primary' ng-click='getPage(target.title)'>Load Target Page</button>
-    
-    <p class="h2"> {{ article.title}} </p>
-<!--    <div dynamic-html='article.html'></div>-->
-    <div ng-bind-html='article.html' dynamic-html='article.html'></div>
-    
-    <button class='btn btn-primary' ng-click='getRandomPage()'>Random Page</button>
-    <pre>{{ currentPage | json }}</pre>
+    <div class='col-xs-2 sidebar'>
 
+        <!--        TODO: this needs to be a new directive.-->
+        <p class="h4 article-title" style="min-width:300px;">{{ article.title | pretty }} =====================></p>
+
+        <hr/>
+
+        <!--        TODO: dsiplay some loading feedback -->
+        <!--        TODO: how would you stop someone from just putting in the name in the query parameter....-->
+        <!--        TODO: extend the active vertical tab background over to the middle
+                  ...add overflow ... to buttons.  &| change the color -->
+
+        <!--        TODO: add popover api call with short lookup... -->
+        <!--        TODO: make the start and dest the query parameters and DO NOT make the current page one. (CHEATERS) -->
+        <!--        TODO: more attention to detail on the api calls. add more comments and optional param defaults.-->
+        <button class='btn btn-primary col-xs-12' uib-popover="{{ article.title | pretty }}" popover-trigger="'focus'" popover-placement='right' popover-append-to-body="true">{{ article.title | pretty }}</button>
+
+        <p> --- </p>
+
+
+        <button class='btn btn-default col-xs-12' uib-popover="{{ target }}" popover-trigger="'focus'" popover-placement='right' popover-append-to-body="true" ng-disabled='true'> ??? </button>
+        <p> --- </p>
+        <p> --- </p>
+        <p> --- </p>
+        <p> --- </p>
+        <p> --- </p>
+
+        <button class='btn btn-danger col-xs-12' uib-popover="{{ target }}" popover-trigger="'focus'" popover-placement='right' popover-append-to-body="true" ng-disabled='true'>TARGET_ARTICLE</button>
+
+
+    </div>
+    <div class='col-xs-9 col-sm-offset-3 article-title'>
+        <!-- html viewport -->
+        <div ng-bind-html='article.html' dynamic-html='article.html'></div>
+    </div>
 </div>
+
