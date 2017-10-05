@@ -1,19 +1,17 @@
-angular.module("urbnApp.directives", []).directive('dynamicElement', function ($compile) {
+angular.module("urbnApp").directive('dynamicHtml', function ($compile) {
+    /**
+     * ng-bind-html does not $compile when added to the DOM.
+     * hence the existence of this directive.
+     */
     return {
-        restrict: 'E',
-        scope: {
-            message: "="
-        },
+        restrict: 'A',
         replace: true,
         link: function (scope, element, attrs) {
-            console.log(scope.message);
-            var template = $compile(scope.message)(scope);
-            element.replaceWith(template);
-        },
-        controller: function ($scope) {
-            $scope.clickMe = function () {
-                console.log("hi");
-            };
+            // whenever a new html string is loaded, compile it with angular.
+            scope.$watch(attrs.dynamicHtml, function (html) {
+                element[0].innerHTML = html;
+                $compile(element.contents())(scope);
+            });
         }
     }
 });

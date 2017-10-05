@@ -14,7 +14,6 @@ angular
     'ngRoute',
     'ui.bootstrap',
     'urbnApp.services',
-    'urbnApp.directives',
     'ngSanitize'
   ])
   .config(function ($routeProvider, $locationProvider) {

@@ -8,6 +8,24 @@
   padding: 0.2em 0;
 }
 
+/* class for disabling all external links (not part of wikimedia)*/
+a.deactivated {
+    pointer-events: none;
+    cursor: default;
+    color: #333;
+}
+
+/* class for adding emphasis on clickable anchors */
+a.WikiLink, 
+a.WikiLink:visited {
+    color: #f87f93;
+    font-size: 1.3em;
+    text-decoration: none;
+}
+a.WikiLink:hover {
+    border-top: 1px solid #ff0000;
+}
+
 body {
   padding: 0;
 }
