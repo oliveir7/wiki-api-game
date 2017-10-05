@@ -1,4 +1,4 @@
-angular.module("urbnApp").directive('dynamicHtml', function ($compile) {
+angular.module("urbnApp").directive('dynamicHtml', function ($compile, $window) {
     /**
      * ng-bind-html does not $compile when added to the DOM.
      * hence the existence of this directive.
@@ -10,14 +10,11 @@ angular.module("urbnApp").directive('dynamicHtml', function ($compile) {
             // whenever a new html string is loaded, compile it with angular.
             scope.$watch(attrs.dynamicHtml, function (html) {
                 if (typeof html !== 'undefined') {
-                    // trying to get rid of things that break the compile, such as []
-                    html = html.replace(/ *\[[^)]*\] */g, ""); 
-                    
-                    element[0].innerHTML = html;
                     try {
                         $compile(element.contents())(scope);
-                    } catch (err) {
-                        console.info(err);
+                    }catch(e){
+                        alert('Error. Could not render this page.');
+                        $window.history.back();
                     }
                 }
             });
