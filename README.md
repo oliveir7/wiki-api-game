@@ -1,8 +1,4 @@
-# urbn-app
-
-Front end coding challenge submission for URBN.
-
-This webapp is called Get to the Chopper.
+# Info
 
 Navigate through wikipedia articles until you get to your destination.
 
