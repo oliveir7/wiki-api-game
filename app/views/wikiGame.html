@@ -1,0 +1,16 @@
+<div>
+    <div class='col-xs-3 app-container sidebar-nodes shadow'>
+        <!-- sidebar that tracks viewed articles -->
+        <progress-tracker stack='history'></progress-tracker>
+    </div>
+    
+    <div class='col-xs-9 app-container shadow'>
+        <a class='btn btn-danger pull-right' href='#/'>Start Over <span class='glyphicon glyphicon-repeat'></span></a>
+        
+        <!-- article title -->
+        <p class="h2">{{ article.title | pretty }} </p> 
+        <hr/>
+        <!-- html viewport -->
+        <div ng-bind-html='article.html' dynamic-html='article.html'></div>
+    </div>
+</div>

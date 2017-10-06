@@ -8,6 +8,67 @@
   padding: 0.2em 0;
 }
 
+/*********** start urbnApp **********/
+
+/* class for disabling all external links (not part of wikimedia)*/
+a.deactivated {
+    pointer-events: none;
+    cursor: default;
+    color: #333;
+}
+
+/* class for adding emphasis on clickable anchors */
+a.WikiLink, 
+a.WikiLink:visited {
+    color: #f87f93;
+    font-size: 1.3em;
+    text-decoration: none;
+}
+a.WikiLink:hover {
+    border-top: 1px solid #ff0000;
+}
+
+.tab .uib-tab .nav-item :hover {
+    cursor: pointer;
+}
+
+.sidebar {
+    position: fixed;
+}
+
+.article-title {
+    background-color: #efefef
+}
+
+.fixed-font {
+    font-size: 12px;
+}
+
+.app-container {
+    max-width: 1200px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #fcfcfc;
+    border-radius: 4px 4px 4px 4px;
+}
+
+.sidebar-nodes {
+    text-overflow: ellipsis;
+}
+
+.shadow {
+    
+  -webkit-box-shadow: -7px -4px 12px -3px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow:    -7px -4px 12px -3px #ccc;  /* Firefox 3.5 - 3.6 */
+  box-shadow:         -7px -4px 12px -3px #ccc;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+}
+
+
+
+/*********** end urbnApp **********/
+
 body {
   padding: 0;
 }
