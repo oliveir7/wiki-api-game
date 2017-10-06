@@ -29,7 +29,7 @@ angular.module('urbnApp', [
             controller: 'AboutCtrl'
         })
         .when('/play', {
-            templateUrl: 'views/wiki-game-start.html',
+            templateUrl: 'views/wikiGame.html',
             controller: 'WikiGameCtrl',
             reloadOnSearch: false // do not leave page when a query parameter is added
         })

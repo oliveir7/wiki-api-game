@@ -19,7 +19,7 @@ angular.module("urbnApp").directive('progressTracker', function () {
             }
             
             $scope.goal = Config.targetArticle;
-            console.log('Psst... here\'s a cheat code: ' + btoa($scope.goal));
+            console.info('Psst... here\'s the cheat code: ' + btoa($scope.goal));
         }
     }
 });

@@ -1,12 +1,4 @@
 angular.module('urbnApp.services', [])
-//    .factory('WikiRandomCached', function ($resource, Config) {
-//        return $resource(Config.apiUrl + '/page/random/title', {}, {
-//            get: {
-//                cache: true,
-//                method: 'get'
-//            }
-//        });
-//    })
     .factory('WikiRandom', function ($resource, Config) {
         return $resource(Config.apiUrl + '/page/random/title', {}, {
             get: {
@@ -20,7 +12,7 @@ angular.module('urbnApp.services', [])
                 cache: true,
                 method: 'get',
                 transformResponse: function (data) {
-                    var page = {};
+                    var page = {}; 
                     page.html = data;
                     return page;
                 }

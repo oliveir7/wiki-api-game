@@ -29,6 +29,7 @@ angular.module('urbnApp').controller('MainCtrl', function ($scope, WikiRandom, C
 
         }, function (error) {
             console.error(error);
+            window.location.href = '404.html';
         });
     }
 

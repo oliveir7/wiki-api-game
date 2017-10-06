@@ -1,4 +1,4 @@
-angular.module("urbnApp").directive('dynamicHtml', function ($compile, $window) {
+angular.module("urbnApp").directive('dynamicHtml', function ($compile, $window, $location) {
     /**
      * ng-bind-html does not $compile when added to the DOM.
      * hence the existence of this directive.
@@ -13,9 +13,9 @@ angular.module("urbnApp").directive('dynamicHtml', function ($compile, $window) 
                     try {
                         $compile(element.contents())(scope);
                     }catch(e){
-//                        TODO: come up with a better solution for handling this error
-                        console.info(attrs);
+                        // TODO: come up with a better solution for handling this error
                         alert('Error: Could not render HTML');
+                        $location.path('/')
                     }
                 }
             });

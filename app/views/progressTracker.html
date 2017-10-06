@@ -1,34 +1,30 @@
 <div>
-    <!--        TODO: dsiplay some loading feedback -->
-    <!--        TODO: extend the active vertical tab background over to the middle ...add overflow ... to buttons.  &| change the color -->
-    <!--        TODO: add popover api call with short lookup... -->
-    <!--        TODO: make the start and dest the query parameters  -->
-    <!--        TODO: more attention to detail on the api calls. add more comments and optional param defaults.-->
-
+    <!--        TODO: display some loading feedback -->
+    <!--        TODO: add api call to popover with meta data lookup... -->
     <p class="h3 text-center"> Articles </p>
     <hr/>
+    
     <div ng-repeat='node in stack track by $index' class="text-center">
-        <span ng-if='node.title === goal'> <span ng-init='finished()'></span></span>
+        <span ng-if='node.title === goal'>
+            <span ng-init='finished()'>You made it!</span>
+        </span>
+        
         <div ng-if='node.title !== goal'>
-            <button class='btn col-xs-12' uib-popover="{{ node.title }}" popover-trigger="'mouseenter'" popover-placement='right' popover-append-to-body="true" ng-class=" {'btn-default': !$last, 'btn-warning': $last} "> {{ $index + 1}}. {{ node.title | pretty }} </button>
+            <!-- display a button for each article in the list history. add orange styling to the active article. add $index to button text. show full article name on button hover. -->
+            <button class='btn col-xs-12' uib-popover="{{ node.title }}" popover-trigger="'mouseenter'" popover-placement='right' 
+                    popover-append-to-body="true" ng-class=" {'btn-default': !$last, 'btn-warning': $last} "> {{ $index + 1}}. {{ node.title | pretty }} </button>
             <span class="glyphicon glyphicon-arrow-down "></span>
         </div>
     </div>
+    
     <p ng-hide='atFinish' class="text-center">
+        <!-- user is not at the end, display a ??? button and disable it -->
         <button class='btn btn-default col-xs-12' ng-disabled='true'> ??? </button>
         <span class="glyphicon glyphicon-arrow-down "></span>
     </p>
-    
-<!--    <button class='btn btn-danger col-xs-12' uib-popover="{{ article.title | pretty }}" popover-trigger="'mouseenter'" popover-placement='right' popover-append-to-body="true">{{ article.title | pretty }}</button>-->
-<!--    <p class="text-center">-->
-<!--        <span class="glyphicon glyphicon-arrow-down "></span>-->
-<!--    </p>-->
-    
-    
+
     <button class='btn btn-success col-xs-12' uib-popover="{{ target }}" popover-trigger="'mouseenter'" popover-placement='right' popover-append-to-body="true"> {{ goal | pretty }}</button>
-    
-    <br><hr/>
-    
 
-
+    <br>
+    <hr/>
 </div>
