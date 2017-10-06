@@ -1,0 +1,43 @@
+<div>
+    <!--        TODO: this needs to be a new directive.-->
+    <!--        TODO: dsiplay some loading feedback -->
+    <!--        TODO: extend the active vertical tab background over to the middle ...add overflow ... to buttons.  &| change the color -->
+    <!--        TODO: add popover api call with short lookup... -->
+    <!--        TODO: make the start and dest the query parameters  -->
+    <!--        TODO: more attention to detail on the api calls. add more comments and optional param defaults.-->
+
+    <p class="h3 text-center"> Articles </p>
+    <hr/>
+    <p ng-repeat='n in [1,2,3,4,5] track by $index' class="text-center">
+        <button class='btn btn-default col-xs-12' uib-popover="Electoral Collage" popover-trigger="'mouseenter'" popover-placement='right' popover-append-to-body="true"> Article {{ $index + 1 }} </button>
+        <span class="glyphicon glyphicon-arrow-down "></span>
+    </p>
+
+    <button class='btn btn-danger col-xs-12' uib-popover="{{ article.title | pretty }}" popover-trigger="'mouseenter'" popover-placement='right' popover-append-to-body="true">{{ article.title | pretty }}</button>
+    <p class="text-center">
+        <span class="glyphicon glyphicon-arrow-down "></span>
+    </p>
+
+    <button class='btn btn-default col-xs-12' uib-popover="{{ target }}" popover-trigger="'mouseenter'" popover-placement='right' popover-append-to-body="true" ng-disabled='true'> ??? </button>
+
+    <p class="text-center">
+        <span class="glyphicon glyphicon-arrow-down "></span>
+    </p>
+
+    <button class='btn btn-default col-xs-12' uib-popover="{{ target }}" popover-trigger="'mouseenter'" popover-placement='right' popover-append-to-body="true" ng-disabled='true'> ??? </button>
+
+    <p class="text-center">
+        <span class="glyphicon glyphicon-arrow-down "></span>
+    </p>
+    <button class='btn btn-default col-xs-12' uib-popover="{{ target }}" popover-trigger="'mouseenter'" popover-placement='right' popover-append-to-body="true" ng-disabled='true'> ??? </button>
+
+    <p class="text-center">
+        <span class="glyphicon glyphicon-arrow-down "></span>
+    </p>
+
+    <button class='btn btn-success col-xs-12' uib-popover="{{ target }}" popover-trigger="'mouseenter'" popover-placement='right' popover-append-to-body="true">{{ goal | pretty }}</button>
+
+    <br/>
+    <hr/>
+
+</div>

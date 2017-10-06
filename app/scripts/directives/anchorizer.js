@@ -19,7 +19,7 @@ angular.module('urbnApp').directive('a', function ($location) {
             // for all wiki links without a ':' or '#' and start with './'
             if (attrs.rel === 'mw:WikiLink' && url.indexOf(':') < 0 && url.indexOf('#') < 0 && url.substr(0, 2) === './') {
                  // add bootstrap label class so all clickable links have clear visual feedback
-                elem.addClass('label label-info fixed-font');
+                elem.addClass('label label-primary fixed-font');
                 // add click event listener to this anchor
                 elem.on('click', clickHandler);
                 
