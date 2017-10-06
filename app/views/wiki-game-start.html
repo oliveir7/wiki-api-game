@@ -1,37 +1,59 @@
 <div>
-    <div class='col-xs-2 sidebar'>
+<!--    <div class='col-xs-2 sidebar'>-->
+    <div class='col-xs-3 app-container sidebar-nodes'>
 
         <!--        TODO: this needs to be a new directive.-->
-        <p class="h4 article-title" style="min-width:300px;">{{ article.title | pretty }} =====================></p>
+<!--        <p class="h4">{{ article.title | pretty }} </p>-->
 
-        <hr/>
+<!--        <hr/>-->
 
         <!--        TODO: dsiplay some loading feedback -->
-        <!--        TODO: how would you stop someone from just putting in the name in the query parameter....-->
         <!--        TODO: extend the active vertical tab background over to the middle
                   ...add overflow ... to buttons.  &| change the color -->
 
         <!--        TODO: add popover api call with short lookup... -->
         <!--        TODO: make the start and dest the query parameters and DO NOT make the current page one. (CHEATERS) -->
         <!--        TODO: more attention to detail on the api calls. add more comments and optional param defaults.-->
+        
+        <p class="h3 text-center"> Articles </p>
+        <hr/>
+        <button class='btn btn-default col-xs-12' uib-popover="Electoral Collage" popover-trigger="'focus'" popover-placement='right' popover-append-to-body="true"> Electoral Collage </button>
+        
+        <p class="text-center">
+            <span class="glyphicon glyphicon-arrow-down "></span>
+        </p>
+        
+        
         <button class='btn btn-primary col-xs-12' uib-popover="{{ article.title | pretty }}" popover-trigger="'focus'" popover-placement='right' popover-append-to-body="true">{{ article.title | pretty }}</button>
-
-        <p> --- </p>
-
+        <p class="text-center">
+            <span class="glyphicon glyphicon-arrow-down "></span>
+        </p>
 
         <button class='btn btn-default col-xs-12' uib-popover="{{ target }}" popover-trigger="'focus'" popover-placement='right' popover-append-to-body="true" ng-disabled='true'> ??? </button>
-        <p> --- </p>
-        <p> --- </p>
-        <p> --- </p>
-        <p> --- </p>
-        <p> --- </p>
+        
+        <p class="text-center">
+            <span class="glyphicon glyphicon-arrow-down "></span>
+        </p>
 
-        <button class='btn btn-danger col-xs-12' uib-popover="{{ target }}" popover-trigger="'focus'" popover-placement='right' popover-append-to-body="true" ng-disabled='true'>TARGET_ARTICLE</button>
+        <button class='btn btn-default col-xs-12' uib-popover="{{ target }}" popover-trigger="'focus'" popover-placement='right' popover-append-to-body="true" ng-disabled='true'> ??? </button>
+        
+        <p class="text-center">
+            <span class="glyphicon glyphicon-arrow-down "></span>
+        </p>
+        <button class='btn btn-default col-xs-12' uib-popover="{{ target }}" popover-trigger="'focus'" popover-placement='right' popover-append-to-body="true" ng-disabled='true'> ??? </button>
+        
+        <p class="text-center">
+            <span class="glyphicon glyphicon-arrow-down "></span>
+        </p>
 
+        <button class='btn btn-danger col-xs-12' uib-popover="{{ target }}" popover-trigger="'focus'" popover-placement='right' popover-append-to-body="true">{{ goal | pretty }}</button>
 
+        <br/><hr/>
     </div>
-    <div class='col-xs-9 col-sm-offset-3 article-title'>
+<!--    <div class='col-xs-9 col-sm-offset-3 article-title '>-->
+    <div class='col-xs-9 app-container'>
         <!-- html viewport -->
+        <p class="h2">{{ article.title | pretty }} </p>
         <div ng-bind-html='article.html' dynamic-html='article.html'></div>
     </div>
 </div>

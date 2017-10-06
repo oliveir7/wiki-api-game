@@ -25,13 +25,13 @@ angular.module('urbnApp').directive('a', function ($location) {
                 
             } else if (typeof url !== 'undefined' && url.substring(0, 2) === '#/') {
                 // do not interfere with anchors with these values
-                console.log('Native href:->');
-                console.log(attrs);
+//                console.log('Native href:->');
+//                console.log(attrs);
                 
             } else if (typeof attrs.ngHref !== 'undefined' && attrs.ngHref.substring(0, 2) === '#/') {
                 // do not interfere with anchors with these values
-                console.log('Native angular href:->');
-                console.log(attrs);
+//                console.log('Native angular href:->');
+//                console.log(attrs);
                 
             } else {
                 // disable all other links
@@ -46,7 +46,8 @@ angular.module('urbnApp').directive('a', function ($location) {
                 var title = url.substr(2);
 
                 // add query parameter for our app
-                $location.search('title', title);
+                // encoding title to deter cheating a bit. (typing in the destination in the url and instantly winning)
+                $location.search('title', btoa(title));
 
                 // $apply() is used to execute an expression in angular from outside of the angular framework 
                 scope.$apply();

@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name urbnApp.controller:MainCtrl
+ * @name urbnApp.controller:WikiGameCtrl
  * @description
- * # MainCtrl
+ * # WikiGameCtrl
  * Controller of the urbnApp
  */
-angular.module('urbnApp').controller('WikiGameCtrl', function ($scope, WikiRandomCached, WikiRandom, $window, WikiPage, $compile, $location) {
+angular.module('urbnApp').controller('WikiGameCtrl', function ($scope, $window, WikiPage, $compile, $location, Config) {
 
     /**
      * The wikipedia adventure game.
@@ -40,15 +40,6 @@ angular.module('urbnApp').controller('WikiGameCtrl', function ($scope, WikiRando
 //        }
 //    }
 
-    $scope.getRandomPage = function () {
-        console.log('Fetching a random page! Good luck!');
-        WikiRandom.get().$promise.then(function (data) {
-            $location.search('title', data.items[0].title);
-        }, function (error) {
-            $scope.article.html = error;
-        });
-    };
-    
     $scope.getPage = function (titleParm) {
         $scope.article = {};
         $scope.article.title = titleParm;
@@ -65,12 +56,14 @@ angular.module('urbnApp').controller('WikiGameCtrl', function ($scope, WikiRando
     function lookupQuery() {
         var query = $location.search();
         if(angular.isDefined(query.title)){
-            $scope.getPage(query.title);
+            // decoding the encoded title
+            $scope.getPage(atob(query.title));
         } else {
-            $scope.getRandomPage()
+            $location.path('#/')
         }
     }
     
+    $scope.goal = Config.targetArticle;
     lookupQuery();
     
     $scope.$on('$routeUpdate', function () {
