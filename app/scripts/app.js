@@ -24,8 +24,8 @@ angular.module('urbnApp', [
             templateUrl: 'views/main.html',
             controller: 'MainCtrl'
         })
-        .when('/about', {
-            templateUrl: 'views/about.html',
+        .when('/finish', {
+            templateUrl: 'views/finish.html',
             controller: 'AboutCtrl'
         })
         .when('/play', {

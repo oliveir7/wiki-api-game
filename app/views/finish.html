@@ -1,0 +1,16 @@
+<div class="jumbotron">
+    <h1>Congrats, you made it!</h1>
+</div>
+
+<div class="row marketing text-center">
+
+    <p class="h1">
+        It took you {{ solution.length }} clicks:
+    </p>
+    <div ng-repeat='node in solution'>
+        <p class="h3">{{ $index +1 }}. {{ node.title | pretty }}</p>
+    </div>
+    
+    <br><hr/>
+    <a class='btn btn-success' href='#/'>Play Again <span class='glyphicon glyphicon-repeat'></span></a>
+</div>

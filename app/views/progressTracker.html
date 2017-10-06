@@ -7,13 +7,14 @@
 
     <p class="h3 text-center"> Articles </p>
     <hr/>
-    <p ng-repeat='node in stack track by $index' class="text-center">
-        <span ng-if='node.title === goal'>we won!</span>
-        <button class='btn col-xs-12' uib-popover="{{ node.title }}" popover-trigger="'mouseenter'" popover-placement='right' popover-append-to-body="true" ng-class=" {'btn-default': !$last, 'btn-warning': $last} "> {{ $index + 1}}. {{ node.title | pretty }} </button>
-        <span class="glyphicon glyphicon-arrow-down "></span>
-    </p>
-
-    <p ng-if='!finished' class="text-center">
+    <div ng-repeat='node in stack track by $index' class="text-center">
+        <span ng-if='node.title === goal'> <span ng-init='finished()'></span></span>
+        <div ng-if='node.title !== goal'>
+            <button class='btn col-xs-12' uib-popover="{{ node.title }}" popover-trigger="'mouseenter'" popover-placement='right' popover-append-to-body="true" ng-class=" {'btn-default': !$last, 'btn-warning': $last} "> {{ $index + 1}}. {{ node.title | pretty }} </button>
+            <span class="glyphicon glyphicon-arrow-down "></span>
+        </div>
+    </div>
+    <p ng-hide='atFinish' class="text-center">
         <button class='btn btn-default col-xs-12' ng-disabled='true'> ??? </button>
         <span class="glyphicon glyphicon-arrow-down "></span>
     </p>
@@ -24,7 +25,7 @@
 <!--    </p>-->
     
     
-    <button class='btn btn-success col-xs-12' uib-popover="{{ target }}" popover-trigger="'mouseenter'" popover-placement='right' popover-append-to-body="true">{{ goal | pretty }}</button>
+    <button class='btn btn-success col-xs-12' uib-popover="{{ target }}" popover-trigger="'mouseenter'" popover-placement='right' popover-append-to-body="true"> {{ goal | pretty }}</button>
     
     <br><hr/>
     

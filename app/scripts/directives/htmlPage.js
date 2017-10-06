@@ -13,8 +13,9 @@ angular.module("urbnApp").directive('dynamicHtml', function ($compile, $window) 
                     try {
                         $compile(element.contents())(scope);
                     }catch(e){
-                        alert('Error. Could not render this page.');
-                        $window.history.back();
+//                        TODO: come up with a better solution for handling this error
+                        console.info(attrs);
+                        alert('Error: Could not render HTML');
                     }
                 }
             });
