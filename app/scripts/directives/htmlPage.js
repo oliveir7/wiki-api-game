@@ -1,4 +1,6 @@
-angular.module("urbnApp").directive('dynamicHtml', function ($compile, $window, $location) {
+"use strict";
+
+angular.module("urbnApp").directive('dynamicHtml', function ($compile) {
     /**
      * ng-bind-html does not $compile when added to the DOM.
      * hence the existence of this directive.
@@ -15,10 +17,10 @@ angular.module("urbnApp").directive('dynamicHtml', function ($compile, $window, 
                     }catch(e){
                         // TODO: come up with a better solution for handling this error
                         alert('Error: Could not render HTML');
-                        $location.path('/')
+                        window.location.href = '404.html'
                     }
                 }
             });
         }
-    }
+    };
 });

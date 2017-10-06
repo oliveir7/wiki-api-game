@@ -26,7 +26,7 @@ angular.module('urbnApp', [
         })
         .when('/finish', {
             templateUrl: 'views/finish.html',
-            controller: 'AboutCtrl'
+            controller: 'FinishCtrl'
         })
         .when('/play', {
             templateUrl: 'views/wikiGame.html',

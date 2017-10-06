@@ -1,3 +1,5 @@
+"use strict";
+
 angular.module('urbnApp').directive('a', function ($location) {
     /**
      * Whenever an anchor is clicked, we need to hijack it.
@@ -14,6 +16,21 @@ angular.module('urbnApp').directive('a', function ($location) {
              */
             
             var url = attrs.href;
+
+            function clickHandler(e) {
+                // do not load the url
+                e.preventDefault();
+
+                // remove first 2 characters, which are "./"
+                var title = url.substr(2);
+
+                // add query parameter for our app
+                // encoding title to deter cheating a bit. (typing in the destination in the url and instantly winning)
+                $location.search('title', btoa(title));
+
+                // $apply() is used to execute an expression in angular from outside of the angular framework 
+                scope.$apply();
+            }
             
             // TODO: make a regex for this
             // for all wiki links without a ':' or '#' and start with './'
@@ -38,20 +55,7 @@ angular.module('urbnApp').directive('a', function ($location) {
                 elem.addClass('deactivated');
             }
             
-            function clickHandler(e) {
-                // do not load the url
-                e.preventDefault();
 
-                // remove first 2 characters, which are "./"
-                var title = url.substr(2);
-
-                // add query parameter for our app
-                // encoding title to deter cheating a bit. (typing in the destination in the url and instantly winning)
-                $location.search('title', btoa(title));
-
-                // $apply() is used to execute an expression in angular from outside of the angular framework 
-                scope.$apply();
-            }
             
                     
         }

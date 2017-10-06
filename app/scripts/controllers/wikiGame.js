@@ -48,7 +48,7 @@ angular.module('urbnApp').controller('WikiGameCtrl', function ($scope, $window, 
             window.location.href = '404.html';
             console.error(response);
         });
-    }
+    };
     
     function lookupQuery() {
         var query = $location.search();
@@ -56,7 +56,7 @@ angular.module('urbnApp').controller('WikiGameCtrl', function ($scope, $window, 
             // decoding the encoded title
             $scope.getPage(atob(query.title));
         } else {
-            $location.path('#/')
+            $location.path('#/');
         }
     }
     
@@ -78,5 +78,5 @@ angular.module('urbnApp').controller('WikiGameCtrl', function ($scope, $window, 
         } else {
             return uglyTitle;
         }
-    }
+    };
 });

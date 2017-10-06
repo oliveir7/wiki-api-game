@@ -1,3 +1,5 @@
+"use strict";
+
 angular.module('urbnApp.services', [])
     .factory('WikiRandom', function ($resource, Config) {
         return $resource(Config.apiUrl + '/page/random/title', {}, {
