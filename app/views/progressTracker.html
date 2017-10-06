@@ -1,5 +1,4 @@
 <div>
-    <!--        TODO: this needs to be a new directive.-->
     <!--        TODO: dsiplay some loading feedback -->
     <!--        TODO: extend the active vertical tab background over to the middle ...add overflow ... to buttons.  &| change the color -->
     <!--        TODO: add popover api call with short lookup... -->
@@ -8,36 +7,27 @@
 
     <p class="h3 text-center"> Articles </p>
     <hr/>
-    <p ng-repeat='n in [1,2,3,4,5] track by $index' class="text-center">
-        <button class='btn btn-default col-xs-12' uib-popover="Electoral Collage" popover-trigger="'mouseenter'" popover-placement='right' popover-append-to-body="true"> Article {{ $index + 1 }} </button>
+    <p ng-repeat='node in stack track by $index' class="text-center">
+        <span ng-if='node.title === goal'>we won!</span>
+        <button class='btn col-xs-12' uib-popover="{{ node.title }}" popover-trigger="'mouseenter'" popover-placement='right' popover-append-to-body="true" ng-class=" {'btn-default': !$last, 'btn-warning': $last} "> {{ $index + 1}}. {{ node.title | pretty }} </button>
         <span class="glyphicon glyphicon-arrow-down "></span>
     </p>
 
-    <button class='btn btn-danger col-xs-12' uib-popover="{{ article.title | pretty }}" popover-trigger="'mouseenter'" popover-placement='right' popover-append-to-body="true">{{ article.title | pretty }}</button>
-    <p class="text-center">
+    <p ng-if='!finished' class="text-center">
+        <button class='btn btn-default col-xs-12' ng-disabled='true'> ??? </button>
         <span class="glyphicon glyphicon-arrow-down "></span>
     </p>
-
-    <button class='btn btn-default col-xs-12' uib-popover="{{ target }}" popover-trigger="'mouseenter'" popover-placement='right' popover-append-to-body="true" ng-disabled='true'> ??? </button>
-
-    <p class="text-center">
-        <span class="glyphicon glyphicon-arrow-down "></span>
-    </p>
-
-    <button class='btn btn-default col-xs-12' uib-popover="{{ target }}" popover-trigger="'mouseenter'" popover-placement='right' popover-append-to-body="true" ng-disabled='true'> ??? </button>
-
-    <p class="text-center">
-        <span class="glyphicon glyphicon-arrow-down "></span>
-    </p>
-    <button class='btn btn-default col-xs-12' uib-popover="{{ target }}" popover-trigger="'mouseenter'" popover-placement='right' popover-append-to-body="true" ng-disabled='true'> ??? </button>
-
-    <p class="text-center">
-        <span class="glyphicon glyphicon-arrow-down "></span>
-    </p>
-
+    
+<!--    <button class='btn btn-danger col-xs-12' uib-popover="{{ article.title | pretty }}" popover-trigger="'mouseenter'" popover-placement='right' popover-append-to-body="true">{{ article.title | pretty }}</button>-->
+<!--    <p class="text-center">-->
+<!--        <span class="glyphicon glyphicon-arrow-down "></span>-->
+<!--    </p>-->
+    
+    
     <button class='btn btn-success col-xs-12' uib-popover="{{ target }}" popover-trigger="'mouseenter'" popover-placement='right' popover-append-to-body="true">{{ goal | pretty }}</button>
+    
+    <br><hr/>
+    
 
-    <br/>
-    <hr/>
 
 </div>

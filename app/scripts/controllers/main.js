@@ -7,7 +7,7 @@
  * # MainCtrl
  * Controller of the urbnApp
  */
-angular.module('urbnApp').controller('MainCtrl', function ($scope, WikiRandom, Config) {
+angular.module('urbnApp').controller('MainCtrl', function ($scope, WikiRandom, Config, $window) {
     $scope.gameName = Config.appName;
     $scope.goal = Config.targetArticle;
 
@@ -20,6 +20,7 @@ angular.module('urbnApp').controller('MainCtrl', function ($scope, WikiRandom, C
             // encode title to deter cheating a bit. (typing in the destination in the url and instantly winning)
             try {
                 $scope.playBtnUrl = '#/play?title=' + btoa(data.items[0].title);
+                $window.sessionStorage.removeItem('history');
             } catch (err) {
                 console.error(data.items[0].title);
                 setStartingPoint(); // try again, above breaks for non latin characters.

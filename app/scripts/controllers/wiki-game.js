@@ -39,17 +39,37 @@ angular.module('urbnApp').controller('WikiGameCtrl', function ($scope, $window, 
 //            getTarget(); // get new value
 //        }
 //    }
-
+    var list = null;
+    
     $scope.getPage = function (titleParm) {
+        // empty list, need to init
+        if (list === null) {
+            // if we have a session cached, lets try and load it.
+            if (angular.isDefined($window.sessionStorage.history)) {
+                list = JSON.parse($window.sessionStorage.history);
+            } else {
+                list = [];
+            }
+        }
+
         $scope.article = {};
         $scope.article.title = titleParm;
         WikiPage.get({
             title: titleParm
         }).$promise.then(function (response) {
             $scope.article.html = response.html;
-//            $scope.target = response.html;
+            
+            if (list.length === 0 || (list.length > 0 && list[list.length-1].title !== titleParm)) {
+                // the if statement above prevents a duplicate article on a page refresh
+                list.push({
+                    title: titleParm
+                });
+            } 
+            $scope.history = list;
+            $window.sessionStorage.history = JSON.stringify($scope.history); // save updated list in storage
+            
         }, function (response) {
-            // $scope.targetPage = $sce.trustAsHtml(response);
+            // TODO: handle error
         });
     }
     
@@ -69,6 +89,22 @@ angular.module('urbnApp').controller('WikiGameCtrl', function ($scope, $window, 
     $scope.$on('$routeUpdate', function () {
         lookupQuery();
     });
+    
+    
+
+//            TODO: bind ng model. listen for added nodes. check for win. update node colors.
+//            TODO: rename title parm to id
+            
+            // for every article we need:
+            // the title
+            // a hover handler, to make the call.
+            // check if its the game winning article.
+//            
+//            for(var i=0, len=10; i<len; i++){
+//                var article = {};
+//                article.title = 'WOOOOO #';
+//                $scope.history.push(article);
+//            }
 
 }).filter('pretty', function () {
     // Easy way to replace underscores with spaces
